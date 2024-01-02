@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "node index",
     "start": "node index",
-    "build" : "netlify build --prod"
+    "build" : "netlify deploy --prod"
   },
   "author": "",
   "license": "ISC",
