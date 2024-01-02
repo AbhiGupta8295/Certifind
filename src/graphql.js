@@ -6,8 +6,8 @@ const express = require('express');
 
 require('dotenv').config();
 
-async function startServer() {
     const app = express();
+    const router = express.Router();
     const apolloServer = new ApolloServer({
         typeDefs,
         resolvers,
@@ -25,7 +25,8 @@ async function startServer() {
             console.log("connected to database: test (by default) -> collection name : certifind");
         })
 
-    app.listen(process.env.PORT, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
-}
+    // app.listen(process.env.PORT, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
+        app.use("./graphql.js",router);
 
-startServer();
+
+        module.exports.handler = serverless(app);
