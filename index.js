@@ -6,7 +6,7 @@ const express = require('express');
 
 require('dotenv').config();
 
-async function startServer() {
+
     const app = express();
     const apolloServer = new ApolloServer({
         typeDefs,
@@ -31,9 +31,8 @@ async function startServer() {
     });
 
     const port = process.env.PORT || 5000; // Use PORT environment variable or default to 5000
-    app.listen(port, () => {
-        console.log(`Server running on http://localhost:${port}`);
-    });
-}
+    // app.listen(port, () => {
+    //     console.log(`Server running on http://localhost:${port}`);
+    // });
 
-startServer();
+exports.handler = apolloServer.creteHandler();
