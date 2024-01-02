@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "node index",
-    "start": "netlify-lambda serve index",
-    "build": "netlify-lambda build index"
+    "start": "node index",
+    "build":"node index"
   },
   "author": "",
   "license": "ISC",
