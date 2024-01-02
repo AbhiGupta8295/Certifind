@@ -13,7 +13,7 @@ require('dotenv').config();
         resolvers,
     });
 
-    await apolloServer.start();
+    apolloServer.start();
     app.use(express.json());
     apolloServer.applyMiddleware({ app: app, path: '/' });
 
