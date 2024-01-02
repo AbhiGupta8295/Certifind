@@ -34,5 +34,5 @@ async function startServer() {
     app.use('/.netlify/functions/api',router);
 }
 
-module.exports.handler = serverless(app);
 startServer();
+module.exports.handler = serverless(app);
