@@ -1,7 +1,7 @@
-const { ApolloServer } = require('apollo-server-express')
+import {ApolloServer} from "apollo-server-lambda"
 const mongoose = require('mongoose')
-const resolvers = require('./resolvers')
-const typeDefs = require('./typeDefs')
+const resolvers = require('../resolvers')
+const typeDefs = require('../typeDefs')
 const express = require('express');
 
 require('dotenv').config();
