@@ -1,0 +1,6 @@
+[build]
+  command = "npm run build" # Adjust this if needed
+  publish = "build"         # Adjust this if needed
+
+[functions]
+  directory = "netlify-functions" # Adjust this if needed

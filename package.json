@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "node index",
-    "start": "node index",
-    "build":"node index"
-  },
+    "start": "node server.js", 
+    "build": "npm run build",   
+    "deploy": "netlify deploy",
+    "dev": "netlify dev"
+},
   "author": "",
   "license": "ISC",
   "dependencies": {
