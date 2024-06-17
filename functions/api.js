@@ -14,13 +14,14 @@ async function startServer() {
         typeDefs,
         resolvers,
     });
-
-    await apolloServer.start(cors({origin:'*'});
-    apolloServer.applyMiddleware({ app: app, path: '/' });
+    
     const app = express();
     app.use('/',cors({origin: '*',}));
     app.use(bodyParser.json());
     app.use(express.json());
+
+    await apolloServer.start();
+    // apolloServer.applyMiddleware({ app: app, path: '/' });
 
     mongoose.connect(process.env.MONGO_URI || "mongodb+srv://admin:admin@cluster0.yb17mkv.mongodb.net/", {
         useNewUrlParser: true,
@@ -31,7 +32,7 @@ async function startServer() {
         })
 
     // app.listen(process.env.PORT || 5001, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
-    app.listen('https://reliable-jalebi-fa3277.netlify.app/.netlify/functions/api')
+    app.listen('https://reliable-jalebi-fa3277.netlify.app/')
     app.use('/.netlify/functions/api');
 
 }
