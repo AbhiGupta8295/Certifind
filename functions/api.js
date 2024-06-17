@@ -31,7 +31,7 @@ async function startServer() {
         })
 
     // app.listen(process.env.PORT || 5001, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
-    app.use('https://master--fancy-kringle-462f4a.netlify.app/.netlify/functions/api',router);
+    app.use('/.netlify/functions/api',router);
 
 }
 
