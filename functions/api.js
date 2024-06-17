@@ -21,7 +21,6 @@ async function startServer() {
     app.use('/',cors({origin: '*',}));
     app.use(bodyParser.json());
     app.use(express.json());
-    const router = express.Router();
 
     mongoose.connect(process.env.MONGO_URI || "mongodb+srv://admin:admin@cluster0.yb17mkv.mongodb.net/", {
         useNewUrlParser: true,
@@ -32,7 +31,7 @@ async function startServer() {
         })
 
     // app.listen(process.env.PORT || 5001, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
-    app.use('/.netlify/functions/api',router);
+    app.use('/.netlify/functions/api');
 
 }
 
