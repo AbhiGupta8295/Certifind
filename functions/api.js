@@ -9,10 +9,6 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 
 async function startServer() {
-    const app = express();
-    app.use('/',cors({origin: '*'}));
-    app.use(bodyParser.json());
-    app.use(express.json());
 
     const apolloServer = new ApolloServer({
         typeDefs,
@@ -21,6 +17,10 @@ async function startServer() {
 
     await apolloServer.start();
     apolloServer.applyMiddleware({ app: app, path: '/' });
+    const app = express();
+    app.use('/',cors({origin: '*'}),expressMiddleware(apolloServer),);
+    app.use(bodyParser.json());
+    app.use(express.json());
 
     mongoose.connect(process.env.MONGO_URI || "mongodb+srv://admin:admin@cluster0.yb17mkv.mongodb.net/", {
         useNewUrlParser: true,
