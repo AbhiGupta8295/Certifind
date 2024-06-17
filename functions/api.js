@@ -20,7 +20,7 @@ async function startServer() {
     });
 
     await apolloServer.start();
-    apolloServer.applyMiddleware({ app: app, path: '/.netlify/functions/api' });
+    apolloServer.applyMiddleware({ app: app, path: '/' });
 
     mongoose.connect(process.env.MONGO_URI || "mongodb+srv://admin:admin@cluster0.yb17mkv.mongodb.net/", {
         useNewUrlParser: true,
