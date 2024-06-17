@@ -8,11 +8,11 @@ const bodyParser = require('body-parser');
 
 require('dotenv').config();
 
-const app = express();
-app.use(cors({origin: '*'}));
-app.use(bodyParser.json());
-app.use(express.json());
 async function startServer() {
+    const app = express();
+    app.use(cors({origin: '*'}));
+    app.use(bodyParser.json());
+    app.use(express.json());
 
     const apolloServer = new ApolloServer({
         typeDefs,
