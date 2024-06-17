@@ -16,7 +16,7 @@ async function startServer() {
     });
     
     const app = express();
-    app.use('/',cors({origin: '*',}));
+    app.use('/',cors({origin: ['0.0.0.0/0','*','http://localhost:3000']}));
     app.use(bodyParser.json());
     app.use(express.json());
 
@@ -32,7 +32,7 @@ async function startServer() {
         })
 
     // app.listen(process.env.PORT || 5001, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
-    app.listen('https://reliable-jalebi-fa3277.netlify.app/')
+    // app.listen('https://reliable-jalebi-fa3277.netlify.app/')
     app.use('/.netlify/functions/api');
 
 }
