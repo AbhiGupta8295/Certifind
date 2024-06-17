@@ -3,6 +3,8 @@ const mongoose = require('mongoose')
 const resolvers = require('../resolvers')
 const typeDefs = require('../typeDefs')
 const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
 require('dotenv').config();
 
