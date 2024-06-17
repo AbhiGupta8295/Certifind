@@ -18,7 +18,7 @@ async function startServer() {
     await apolloServer.start();
     apolloServer.applyMiddleware({ app: app, path: '/' });
     const app = express();
-    app.use('/',cors({origin: '*'}),expressMiddleware(apolloServer),);
+    app.use('/',cors({origin: '*',}));
     app.use(bodyParser.json());
     app.use(express.json());
 
