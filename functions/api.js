@@ -15,7 +15,7 @@ async function startServer() {
         resolvers,
     });
 
-    await apolloServer.start();
+    await apolloServer.start(cors({origin:'*'});
     apolloServer.applyMiddleware({ app: app, path: '/' });
     const app = express();
     app.use('/',cors({origin: '*',}));
@@ -32,7 +32,7 @@ async function startServer() {
 
     // app.listen(process.env.PORT || 5001, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
     app.listen('https://reliable-jalebi-fa3277.netlify.app/.netlify/functions/api')
-    // app.use('/.netlify/functions/api');
+    app.use('/.netlify/functions/api');
 
 }
 
