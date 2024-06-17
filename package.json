@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "netlify-lambda serve src",
-    "build": "netlify-lambda build src"
+    "start": "node index",
+    "serve": "node index",
+    "build": "netlify deploy --prod"
   },
   "author": "",
   "license": "ISC",
@@ -26,8 +27,8 @@
     "graphql-tag": "^2.12.6",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.0.3",
-    "netlify": "^13.1.11",
-    "netlify-cli": "^17.10.2",
+    "netlify": "^13.1.18",
+    "netlify-cli": "^17.28.0",
     "nodemon": "^3.0.2",
     "serverless-http": "^3.2.0"
   },
