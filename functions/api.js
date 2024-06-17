@@ -10,12 +10,7 @@ require('dotenv').config();
 
 async function startServer() {
     const app = express();
-    app.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
-    credentials: false // Do not allow credentials
-}));
+    app.use(cors({origin: '*'}));
     app.use(bodyParser.json());
     app.use(express.json());
 
@@ -36,7 +31,7 @@ async function startServer() {
         })
 
     // app.listen(process.env.PORT || 5001, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
-    app.use('/.netlify/functions/api',router);
+    app.use('https://master--fancy-kringle-462f4a.netlify.app/.netlify/functions/api',router);
 
 }
 
