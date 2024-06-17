@@ -10,7 +10,12 @@ require('dotenv').config();
 
 async function startServer() {
     const app = express();
-    app.use(cors({origin: '*'}));
+    app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow these methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
+    credentials: false // Do not allow credentials
+}));
     app.use(bodyParser.json());
     app.use(express.json());
 
