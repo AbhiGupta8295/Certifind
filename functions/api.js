@@ -7,6 +7,8 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 
 require('dotenv').config();
+const app = express();
+app.use(cors({origin:'*'}));
 
 async function startServer() {
 
@@ -15,13 +17,10 @@ async function startServer() {
         resolvers,
     });
     
-    const app = express();
     app.use(bodyParser.json());
     app.use(express.json());
-    // app.use(cors());
 
     await apolloServer.start();
-    apolloServer.use(cors({origin:'http://localhost:3000'}));
     apolloServer.applyMiddleware({ app: app, path: '/' });
 
     mongoose.connect(process.env.MONGO_URI || "mongodb+srv://admin:admin@cluster0.yb17mkv.mongodb.net/", {
