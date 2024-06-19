@@ -31,9 +31,9 @@ async function startServer() {
             console.log("connected to database: test (by default) -> collection name : certifind");
         })
 
-    // app.listen(process.env.PORT || 5001, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
-    // app.listen('https://reliable-jalebi-fa3277.netlify.app/')
-    app.use('/.netlify/functions/api');
+    app.listen(process.env.PORT || 5001, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
+    
+    // app.use('/.netlify/functions/api');
 
 }
 
