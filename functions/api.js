@@ -16,11 +16,12 @@ async function startServer() {
     });
     
     const app = express();
-    app.use('/',cors({origin: ['0.0.0.0/0','*','http://localhost:3000']}));
     app.use(bodyParser.json());
     app.use(express.json());
+    app.use(cors({origin:'http://localhost:3000'}));
 
     await apolloServer.start();
+    apolloServer.use(cors({origin:'http://localhost:3000'}));
     // apolloServer.applyMiddleware({ app: app, path: '/' });
 
     mongoose.connect(process.env.MONGO_URI || "mongodb+srv://admin:admin@cluster0.yb17mkv.mongodb.net/", {
