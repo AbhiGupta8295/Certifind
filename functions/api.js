@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 
 require('dotenv').config();
 const app = express();
+const router = express.Router();
 app.use(cors({origin:'*'}));
 
 async function startServer() {
@@ -31,9 +32,9 @@ async function startServer() {
             console.log("connected to database: test (by default) -> collection name : certifind");
         })
 
-    app.listen(process.env.PORT || 5001, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
+    // app.listen(process.env.PORT || 5001, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
     
-    // app.use('/.netlify/functions/api');
+    app.use('/.netlify/functions/api',router);
 
 }
 
