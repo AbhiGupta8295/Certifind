@@ -22,7 +22,7 @@ async function startServer() {
 
     await apolloServer.start();
     apolloServer.use(cors({origin:'http://localhost:3000'}));
-    // apolloServer.applyMiddleware({ app: app, path: '/' });
+    apolloServer.applyMiddleware({ app: app, path: '/' });
 
     mongoose.connect(process.env.MONGO_URI || "mongodb+srv://admin:admin@cluster0.yb17mkv.mongodb.net/", {
         useNewUrlParser: true,
