@@ -5,11 +5,19 @@ const typeDefs = require('../typeDefs')
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-
+const serverless = require('serverless-http');
 require('dotenv').config();
+
+if (process.env.NODE_ENV !== 'production') { 
+    require('dotenv').config(); 
+    } 
+  
 const app = express();
-const router = express.Router();
+const port = process.env.PORT || 5001;
 app.use(cors({origin:'*'}));
+app.use(bodyParser.json());
+app.use(express.json());
+const router = express.Router();
 
 async function startServer() {
 
@@ -18,11 +26,10 @@ async function startServer() {
         resolvers,
     });
     
-    app.use(bodyParser.json());
-    app.use(express.json());
+
 
     await apolloServer.start();
-    apolloServer.applyMiddleware({ app: app, path: '/' });
+    apolloServer.applyMiddleware({ app: app, path: '/.netlify/functions/api' });
 
     mongoose.connect(process.env.MONGO_URI, {
         useNewUrlParser: true,
@@ -34,8 +41,9 @@ async function startServer() {
 
     // app.listen(process.env.PORT || 5001, () => console.log(`Server running on http://localhost:${process.env.PORT }`));
     
-    app.use('/.netlify/functions/api',router);
-
+    
 }
 
 startServer();
+app.use('/.netlify/functions/api',router);
+module.exports.handler = serverless(app);
