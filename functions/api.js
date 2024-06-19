@@ -18,7 +18,7 @@ async function startServer() {
     const app = express();
     app.use(bodyParser.json());
     app.use(express.json());
-    app.use(cors({origin:'http://localhost:3000'}));
+    // app.use(cors());
 
     await apolloServer.start();
     apolloServer.use(cors({origin:'http://localhost:3000'}));
