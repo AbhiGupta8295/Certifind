@@ -1,3 +1,5 @@
+Deployed on Netlify: https://zesty-malabi-f16553.netlify.app/.netlify/functions/api
+ 
  # Certifind
 
 Certifind is a Node.js and MongoDB application that allows users to create and manage certificates. It uses the Apollo Server framework for GraphQL and Mongoose for MongoDB.
